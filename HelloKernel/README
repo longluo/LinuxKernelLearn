@@ -1,0 +1,45 @@
+This is the simplest kernel module implementation, a Hello World.
+
+Follow the next steps:
+
+* Compile the module.
+
+* Insert the module.
+
+* List the modules on the system.
+       - Be sure the module is already inserted.
+
+* Print the kernel ring buffer.
+       - Once you have succesfully inserted the module you should print the kernel
+         ring buffer to see the "Hello Linux Kernel Modules world!" message.
+
+* Remove the module
+
+* Print the kernel ring buffer.
+       - Once you have succesfully removed the module you should print the kernel
+         ring buffer to see the "See you around Linux Kernel Modules world!" message.
+
+
+How To:
+
+- Compile the module:
+$ make
+
+- Insert the module:
+$ sudo insmod hello.ko
+
+- List the modules on the system.
+$ lsmod
+
+- Remove the module:
+$ sudo rmmod hello
+
+- Print the kernel ring buffer:
+$ dmesg
+
+- Clean up:
+$ make clean
+
+
+Thanks,
+Gustavo Silva.

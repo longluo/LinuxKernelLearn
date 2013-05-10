@@ -1,0 +1,62 @@
+This is a kernel module implementation that creates, reads and writes a /proc
+entry with the purpose of getting the backtrace of any process on the system
+given its corresponding Process ID (PID).
+
+
+Follow the next steps:
+
+* Compile the module.
+
+* Insert the module.
+		-In this step the /proc/parent_process entry is created.
+
+* List the modules on the system.
+       - Be sure the module is already inserted.
+
+* Print the kernel ring buffer.
+       - Once you have succesfully inserted the module you should print the kernel
+         ring buffer to see the "Hello Process File System World!" message.
+
+* Select a PID and echo it to the /proc/parent_process entry using the 'echo'
+  command.
+
+* Read the /proc/parent_process entry using the 'cat' command in order to get
+  the backtrace of the selected PID.
+
+* Remove the module.
+		- In this step the /proc/parent_process entry is removed.
+
+* Print the kernel ring buffer.
+       - Once you have succesfully removed the module you should print the kernel
+         ring buffer to see the "Bye Process File System World!" message.
+
+
+How To:
+
+- Compile the module:
+$ make
+
+- Insert the module:
+$ sudo insmod parent_process.ko
+
+- List the modules on the system.
+$ lsmod
+
+- Remove the module:
+$ sudo rmmod parent_process
+
+- Print the kernel ring buffer:
+$ dmesg
+
+- Write to the /proc/parent_process entry:
+$ echo PID | sudo tee /proc/parent_process
+
+- Read from the /proc/parent_process entry:
+$ cat /proc/parent_process
+
+- Clean up:
+$ make clean
+
+
+Thanks,
+Gustavo Silva.
